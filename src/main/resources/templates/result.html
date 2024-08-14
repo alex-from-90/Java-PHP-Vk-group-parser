@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Результаты</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h2 class="my-4">Информация о группе</h2>
+    <div class="card">
+        <div class="card-body">
+            <p><strong>Название:</strong> <span th:text="${name}"></span></p>
+            <p><strong>Количество подписчиков:</strong> <span th:text="${members_count}"></span></p>
+        </div>
+    </div>
+    <div class="container">
+        <a href="/" class="btn btn-secondary my-4">Назад</a>
+        <!-- Rest of the code -->
+    </div>
+    <h2 class="my-4">Список подписчиков:</h2>
+    <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+    <table class="table table-striped" th:if="${followers}">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>День рождения</th>
+            <th>Город</th>
+            <th>Страна</th>
+            <th>Мобильный телефон</th>
+            <th>Университет</th>
+            <th>Ссылка</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="follower : ${followers}">
+            <td th:text="${follower['id']}"></td>
+            <td th:text="${follower['Имя']}"></td>
+            <td th:text="${follower['Фамилия']}"></td>
+            <td th:text="${follower['День рождения']}"></td>
+            <td th:text="${follower['Город']}"></td>
+            <td th:text="${follower['Страна']}"></td>
+            <td th:text="${follower['Мобильный телефон']}"></td>
+            <td th:text="${follower['Университет']}"></td>
+            <td><a th:href="${follower['Ссылка']}" target="_blank" class="btn btn-primary btn-sm">Отправить сообщение</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

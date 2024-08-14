@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Получение подписчиков VK</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">Получение подписчиков VK</h1>
+    <form method="post" action="/get-subscribers">
+        <div class="form-group">
+            <label for="public">Введите короткое имя сообщества:</label>
+            <input type="text" id="public" name="public" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="date_example">Введите дату последнего визита (месяц/день/год):</label>
+            <input type="text" id="date_example" name="date_example" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Получить подписчиков</button>
+    </form>
+</div>
+</body>
+</html>
